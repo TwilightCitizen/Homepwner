@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		301137A425D470C50090975D /* ItemsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 301137A325D470C50090975D /* ItemsVC.m */; };
+		301137AA25D473430090975D /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 301137A925D473430090975D /* Item.m */; };
 		30867A4425D45736007AF6ED /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 30867A4325D45736007AF6ED /* AppDelegate.m */; };
 		30867A4725D45736007AF6ED /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 30867A4625D45736007AF6ED /* SceneDelegate.m */; };
 		30867A4F25D45738007AF6ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30867A4E25D45738007AF6ED /* Assets.xcassets */; };
@@ -18,6 +19,8 @@
 /* Begin PBXFileReference section */
 		301137A225D470C50090975D /* ItemsVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ItemsVC.h; sourceTree = "<group>"; };
 		301137A325D470C50090975D /* ItemsVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ItemsVC.m; sourceTree = "<group>"; };
+		301137A825D473430090975D /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
+		301137A925D473430090975D /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item.m; sourceTree = "<group>"; };
 		30867A3F25D45736007AF6ED /* Homepwner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Homepwner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		30867A4225D45736007AF6ED /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		30867A4325D45736007AF6ED /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -67,6 +70,8 @@
 				30867A4625D45736007AF6ED /* SceneDelegate.m */,
 				301137A225D470C50090975D /* ItemsVC.h */,
 				301137A325D470C50090975D /* ItemsVC.m */,
+				301137A825D473430090975D /* Item.h */,
+				301137A925D473430090975D /* Item.m */,
 				30867A4E25D45738007AF6ED /* Assets.xcassets */,
 				30867A5325D45738007AF6ED /* Info.plist */,
 				30867A5425D45738007AF6ED /* main.m */,
@@ -143,6 +148,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				301137AA25D473430090975D /* Item.m in Sources */,
 				30867A4425D45736007AF6ED /* AppDelegate.m in Sources */,
 				301137A425D470C50090975D /* ItemsVC.m in Sources */,
 				30867A5525D45738007AF6ED /* main.m in Sources */,
