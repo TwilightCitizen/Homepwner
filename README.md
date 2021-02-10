@@ -1,0 +1,3 @@
+#  Homepwner
+
+Homepwner is a non-trivial iOS app written in Objective-C for homeowner's to keep track of their personal belonging and the costs of these items for insurance claim purposes.  It is not an original app of mine.  Rather, it was developed and presented in _iOS Programming: The Big Nerd Ranch Guide_ by Christien Keur, Aaron Hillegass, and Joe Conway.  In it, the authors develop the application across nine chapters, and it increases in sophistication and complexity as they do.  Since Homepwner is not my original app, it will not be published to the App Store, at least not as presented in their book.  Rather, this project exists as a portfolio piece to showcase my understanding of Objective-C, as all my previous iOS applications were authored in Swift.
