@@ -20,7 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (instancetype)initWithItemName:(NSString*)name
                   valueInDollars:(int)value
-                    serialNumber:(NSString *)serial;
+                    serialNumber:(NSString *)serial NS_DESIGNATED_INITIALIZER;
 
 - (instancetype)initWithItemName:(NSString*)name
                     serialNumber:(NSString *)serial;
