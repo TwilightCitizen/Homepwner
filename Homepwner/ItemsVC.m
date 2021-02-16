@@ -9,6 +9,15 @@
 #import "ItemStore.h"
 #import "Item.h"
 
+
+@interface ItemsVC ()
+
+@property (nonatomic, strong) IBOutlet UIView *headerView;
+
+@end
+
+
+
 @implementation ItemsVC
 
 - (instancetype)init
@@ -52,6 +61,14 @@
     cell.textLabel.text = item.description;
     
     return cell;
+}
+
+- (IBAction)addNewItem:(id)sender {
+    
+}
+
+- (IBAction)toggleEditingMode:(id)sender {
+    
 }
 
 @end
