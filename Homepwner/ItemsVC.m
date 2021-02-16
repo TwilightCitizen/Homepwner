@@ -6,6 +6,8 @@
 //
 
 #import "ItemsVC.h"
+#import "ItemStore.h"
+#import "Item.h"
 
 @implementation ItemsVC
 
@@ -15,7 +17,15 @@
 }
 
 - (instancetype)initWithStyle:(UITableViewStyle)style {
-    return [super initWithStyle:UITableViewStylePlain];
+    self = [super initWithStyle:UITableViewStylePlain];
+    
+    if (self) {
+        for (int i = 0; i < 5; i++) {
+            [[ItemStore sharedStore] createItem];
+        }
+    }
+    
+    return self;
 }
 
 @end

@@ -55,7 +55,7 @@
     
     [self.privateItems addObject:item];
     
-    return item;
+    return item;    
 }
 
 @end
