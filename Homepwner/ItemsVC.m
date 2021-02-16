@@ -26,15 +26,7 @@
 }
 
 - (instancetype)initWithStyle:(UITableViewStyle)style {
-    self = [super initWithStyle:UITableViewStylePlain];
-    
-    if (self) {
-        for (int i = 0; i < 5; i++) {
-            [[ItemStore sharedStore] createItem];
-        }
-    }
-    
-    return self;
+    return [super initWithStyle:UITableViewStylePlain];
 }
 
 - (void)viewDidLoad {
@@ -59,8 +51,10 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell"
-                                                            forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView
+                             dequeueReusableCellWithIdentifier:@"UITableViewCell"
+                             forIndexPath:indexPath];
+    
     NSArray *items = [[ItemStore sharedStore] allItems];
     Item *item = items[indexPath.row];
     
@@ -80,11 +74,22 @@
 }
 
 - (IBAction)addNewItem:(id)sender {
+    Item *newItem = [[ItemStore sharedStore] createItem];
+    NSInteger lastRow = [[[ItemStore sharedStore] allItems] indexOfObject:newItem];
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:lastRow inSection:0];
     
+    [self.tableView insertRowsAtIndexPaths:@[indexPath]
+                          withRowAnimation:UITableViewRowAnimationTop];
 }
 
 - (IBAction)toggleEditingMode:(id)sender {
-    
+    if (self.isEditing) {
+        [sender setTitle:@"Edit" forState:UIControlStateNormal];
+        [self setEditing:NO animated:YES];
+    } else {
+        [sender setTitle:@"Done" forState:UIControlStateNormal];
+        [self setEditing:YES animated:YES];
+    }
 }
 
 @end
