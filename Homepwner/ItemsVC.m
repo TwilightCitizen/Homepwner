@@ -42,6 +42,12 @@
     
     [self.tableView registerClass:[UITableViewCell class]
            forCellReuseIdentifier:@"UITableViewCell"];
+    
+    UIView *header = self.headerView;
+    
+    [self.tableView setTableHeaderView:header];
+    
+    self.navigationController.navigationBar.hidden = true;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView
@@ -61,6 +67,16 @@
     cell.textLabel.text = item.description;
     
     return cell;
+}
+
+- (UIView *)headerView {
+    if (!_headerView) {
+        [[NSBundle mainBundle] loadNibNamed:@"ItemsHeader"
+                                      owner:self
+                                    options:nil];
+    }
+    
+    return _headerView;
 }
 
 - (IBAction)addNewItem:(id)sender {
