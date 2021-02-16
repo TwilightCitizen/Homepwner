@@ -4,7 +4,8 @@ Homepwner is a non-trivial iOS app written in Objective-C for homeowner's to kee
 
 Since Homepwner is not my original app, it will not be published to the App Store, at least not as presented in their book.  Rather, this project exists as a portfolio piece to showcase my understanding of Objective-C, as all my previous iOS applications were authored in Swift.
 
-My code deviates from the book where necessary to account for changes in Apple's APIs that occurred after _iOS Programming: The Big Nerd Ranch Guide_ was published.  Over the course of working through the point at this point—at the time of this writing—two major API changes have warranted such deviations:
+My code deviates from the book where necessary to account for changes in Apple's APIs that occurred after _iOS Programming: The Big Nerd Ranch Guide_ was published.  Over the course of working through the point at this point—at the time of this writing—three major API changes have warranted such deviations:
 
 - Scene Delegates take on the responsibility of displaying iOS apps' UI instead of the App Delegate.  This allows for multiple instances of an app's UI to be created as separate instances in the application switcher.  Where the book attaches views and viewcontrollers to the main application window in the App Delegate, it should now be attached to a scene associated with the main application window in the Scene Delegate.
 - The notification API used in the book thus far—not yet in _this_ app, at the time of this writing—is deprecated in favor of a new one.  Any notifications Homepwner may display will use the new API.
+- Objective-C now allows for class properties and unavailable initializers which can provide for a move convenient syntax and semantics for singleton objects like ItemStore.
