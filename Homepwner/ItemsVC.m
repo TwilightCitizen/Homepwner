@@ -63,6 +63,20 @@
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView
+commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
+forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        NSArray *items = [[ItemStore sharedStore] allItems];
+        Item *item = items[indexPath.row];
+        
+        [[ItemStore sharedStore] removeItem:item];
+        [tableView deleteRowsAtIndexPaths:@[indexPath]
+                         withRowAnimation:UITableViewRowAnimationFade];
+    }
+}
+
 - (UIView *)headerView {
     if (!_headerView) {
         [[NSBundle mainBundle] loadNibNamed:@"ItemsHeader"

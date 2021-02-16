@@ -17,6 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (instancetype)sharedStore;
 - (Item *)createItem;
+- (void)removeItem:(Item *)item;
 
 @end
 
