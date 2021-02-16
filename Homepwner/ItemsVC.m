@@ -45,7 +45,7 @@
 - (NSInteger)tableView:(UITableView *)tableView
  numberOfRowsInSection:(NSInteger)section
 {
-    return [[[ItemStore sharedStore] allItems] count];
+    return [ItemStore.sharedStore.allItems count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView
@@ -55,7 +55,7 @@
                              dequeueReusableCellWithIdentifier:@"UITableViewCell"
                              forIndexPath:indexPath];
     
-    NSArray *items = [[ItemStore sharedStore] allItems];
+    NSArray *items = ItemStore.sharedStore.allItems;
     Item *item = items[indexPath.row];
     
     cell.textLabel.text = item.description;
@@ -68,10 +68,10 @@ commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
 forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        NSArray *items = [[ItemStore sharedStore] allItems];
+        NSArray *items = ItemStore.sharedStore.allItems;
         Item *item = items[indexPath.row];
         
-        [[ItemStore sharedStore] removeItem:item];
+        [ItemStore.sharedStore removeItem:item];
         [tableView deleteRowsAtIndexPaths:@[indexPath]
                          withRowAnimation:UITableViewRowAnimationFade];
     }
@@ -81,8 +81,8 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
 moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath
       toIndexPath:(NSIndexPath *)destinationIndexPath
 {
-    [[ItemStore sharedStore] moveItemAtIndex:sourceIndexPath.row
-                                     toIndex:destinationIndexPath.row];
+    [ItemStore.sharedStore moveItemAtIndex:sourceIndexPath.row
+                                   toIndex:destinationIndexPath.row];
 }
 
 - (UIView *)headerView {
@@ -96,8 +96,8 @@ moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath
 }
 
 - (IBAction)addNewItem:(id)sender {
-    Item *newItem = [[ItemStore sharedStore] createItem];
-    NSInteger lastRow = [[[ItemStore sharedStore] allItems] indexOfObject:newItem];
+    Item *newItem = [ItemStore.sharedStore createItem];
+    NSInteger lastRow = [ItemStore.sharedStore.allItems indexOfObject:newItem];
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:lastRow inSection:0];
     
     [self.tableView insertRowsAtIndexPaths:@[indexPath]

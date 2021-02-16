@@ -20,7 +20,7 @@
 
 @implementation ItemStore
 
-+ (instancetype)sharedStore {
++ (ItemStore *)sharedStore {
     static ItemStore *sharedStore;
     
     if (!sharedStore) {
@@ -30,13 +30,7 @@
     return sharedStore;
 }
 
-- (instancetype)init {
-    [NSException raise:@"Singleton" format:@"Use +[ItemStore sharedStore]"];
-    
-    return nil;
-}
-
-- (instancetype)initPrivate {
+- (ItemStore *)initPrivate {
     self = [super init];
     
     if (self) {

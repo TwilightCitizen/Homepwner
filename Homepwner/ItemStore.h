@@ -13,9 +13,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ItemStore : NSObject
 
+@property (class, nonatomic, readonly) ItemStore *sharedStore;
 @property (nonatomic, readonly, copy) NSArray *allItems;
 
-+ (instancetype)sharedStore;
+- (instancetype)init NS_UNAVAILABLE;
 - (Item *)createItem;
 - (void)removeItem:(Item *)item;
 - (void)moveItemAtIndex:(NSUInteger)fromIndex
