@@ -45,7 +45,7 @@
 - (NSInteger)tableView:(UITableView *)tableView
  numberOfRowsInSection:(NSInteger)section
 {
-    return [ItemStore.sharedStore.allItems count];
+    return [ItemStore.sharedStore.allItems count] + 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView
@@ -55,10 +55,13 @@
                              dequeueReusableCellWithIdentifier:@"UITableViewCell"
                              forIndexPath:indexPath];
     
-    NSArray *items = ItemStore.sharedStore.allItems;
-    Item *item = items[indexPath.row];
-    
-    cell.textLabel.text = item.description;
+    if (indexPath.row < ItemStore.sharedStore.allItems.count) {
+        NSArray *items = ItemStore.sharedStore.allItems;
+        Item *item = items[indexPath.row];
+        cell.textLabel.text = item.description;
+    } else {
+        cell.textLabel.text = @"No More Items";
+    }
     
     return cell;
 }
@@ -104,12 +107,35 @@ trailingSwipeActionsConfigurationForRowAtIndexPath:(NSIndexPath *)indexPath
     return config;
 }
 
+- (NSIndexPath *)tableView:(UITableView *)tableView
+targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath
+       toProposedIndexPath:(NSIndexPath *)proposedDestinationIndexPath
+{
+    if (proposedDestinationIndexPath.row == ItemStore.sharedStore.allItems.count) {
+        return sourceIndexPath;
+    } else {
+        return proposedDestinationIndexPath;
+    }
+}
+
 - (void)tableView:(UITableView *)tableView
 moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath
       toIndexPath:(NSIndexPath *)destinationIndexPath
 {
     [ItemStore.sharedStore moveItemAtIndex:sourceIndexPath.row
                                    toIndex:destinationIndexPath.row];
+}
+
+- (BOOL)tableView:(UITableView *)tableView
+canMoveRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return indexPath.row < ItemStore.sharedStore.allItems.count;
+}
+
+- (BOOL)tableView:(UITableView *)tableView
+canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return indexPath.row < ItemStore.sharedStore.allItems.count;
 }
 
 - (UIView *)headerView {
