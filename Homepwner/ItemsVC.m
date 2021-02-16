@@ -77,6 +77,14 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
     }
 }
 
+- (void)tableView:(UITableView *)tableView
+moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath
+      toIndexPath:(NSIndexPath *)destinationIndexPath
+{
+    [[ItemStore sharedStore] moveItemAtIndex:sourceIndexPath.row
+                                     toIndex:destinationIndexPath.row];
+}
+
 - (UIView *)headerView {
     if (!_headerView) {
         [[NSBundle mainBundle] loadNibNamed:@"ItemsHeader"
