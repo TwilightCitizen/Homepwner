@@ -63,7 +63,7 @@
     return cell;
 }
 
-- (void)tableView:(UITableView *)tableView
+/* - (void)tableView:(UITableView *)tableView
 commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
 forRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -75,6 +75,33 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
         [tableView deleteRowsAtIndexPaths:@[indexPath]
                          withRowAnimation:UITableViewRowAnimationFade];
     }
+} */
+
+- (UISwipeActionsConfiguration *)tableView:(UITableView *)tableView
+trailingSwipeActionsConfigurationForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UIContextualActionHandler handler = ^(UIContextualAction * _Nonnull action,
+                                          __kindof UIView * _Nonnull sourceView,
+                                          void (^ _Nonnull completionHandler)(BOOL))
+    {
+        NSArray *items = ItemStore.sharedStore.allItems;
+        Item *item = items[indexPath.row];
+        
+        [ItemStore.sharedStore removeItem:item];
+        [tableView deleteRowsAtIndexPaths:@[indexPath]
+                         withRowAnimation:UITableViewRowAnimationFade];
+        completionHandler(YES);
+    };
+    
+    UIContextualAction *remove = [UIContextualAction
+        contextualActionWithStyle:UIContextualActionStyleDestructive
+        title:@"Remove"
+        handler:handler];
+    
+    UISwipeActionsConfiguration *config = [UISwipeActionsConfiguration
+                                           configurationWithActions:@[remove]];
+    
+    return config;
 }
 
 - (void)tableView:(UITableView *)tableView
