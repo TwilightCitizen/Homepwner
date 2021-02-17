@@ -23,6 +23,11 @@
 
 @implementation DetailsVC
 
+- (void)setItem:(Item *)item {
+    _item = item;
+    self.navigationItem.title = _item.itemName;
+}
+
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     

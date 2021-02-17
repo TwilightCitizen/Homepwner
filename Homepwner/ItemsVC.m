@@ -10,15 +10,6 @@
 #import "Item.h"
 #import "DetailsVC.h"
 
-
-@interface ItemsVC ()
-
-@property (nonatomic, strong) IBOutlet UIView *headerView;
-
-@end
-
-
-
 @implementation ItemsVC
 
 - (instancetype)init
@@ -27,7 +18,22 @@
 }
 
 - (instancetype)initWithStyle:(UITableViewStyle)style {
-    return [super initWithStyle:UITableViewStylePlain];
+    self = [super initWithStyle:UITableViewStylePlain];
+    
+    if (self) {
+        UINavigationItem *navItem = self.navigationItem;
+        navItem.title = @"Homepwner";
+        
+        UIBarButtonItem *bbi = [[UIBarButtonItem alloc]
+                                initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
+                                target:self
+                                action:@selector(addNewItem:)];
+        
+        navItem.rightBarButtonItem = bbi;
+        navItem.leftBarButtonItem = self.editButtonItem;
+    }
+    
+    return self;
 }
 
 - (void)viewDidLoad {
@@ -35,8 +41,6 @@
     
     [self.tableView registerClass:[UITableViewCell class]
            forCellReuseIdentifier:@"UITableViewCell"];
-    
-    [self.tableView setTableHeaderView:self.headerView];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -58,30 +62,20 @@
                              dequeueReusableCellWithIdentifier:@"UITableViewCell"
                              forIndexPath:indexPath];
     
-    if (indexPath.row < ItemStore.sharedStore.allItems.count) {
+    NSInteger count = ItemStore.sharedStore.allItems.count;
+    
+    if (indexPath.row < count) {
         NSArray *items = ItemStore.sharedStore.allItems;
         Item *item = items[indexPath.row];
         cell.textLabel.text = item.description;
+    } else if (count == 0) {
+        cell.textLabel.text = @"No Items";
     } else {
         cell.textLabel.text = @"No More Items";
     }
     
     return cell;
 }
-
-/* - (void)tableView:(UITableView *)tableView
-commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
-forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        NSArray *items = ItemStore.sharedStore.allItems;
-        Item *item = items[indexPath.row];
-        
-        [ItemStore.sharedStore removeItem:item];
-        [tableView deleteRowsAtIndexPaths:@[indexPath]
-                         withRowAnimation:UITableViewRowAnimationFade];
-    }
-} */
 
 - (UISwipeActionsConfiguration *)tableView:(UITableView *)tableView
 trailingSwipeActionsConfigurationForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -96,6 +90,13 @@ trailingSwipeActionsConfigurationForRowAtIndexPath:(NSIndexPath *)indexPath
         [ItemStore.sharedStore removeItem:item];
         [tableView deleteRowsAtIndexPaths:@[indexPath]
                          withRowAnimation:UITableViewRowAnimationFade];
+        
+        NSInteger lastRow = ItemStore.sharedStore.allItems.count;
+        NSIndexPath *lastIndex = [NSIndexPath indexPathForRow:lastRow inSection:0];
+        
+        [self.tableView reloadRowsAtIndexPaths:@[lastIndex]
+                              withRowAnimation:UITableViewRowAnimationNone];
+        
         completionHandler(YES);
     };
     
@@ -141,19 +142,11 @@ canEditRowAtIndexPath:(NSIndexPath *)indexPath
     return indexPath.row < ItemStore.sharedStore.allItems.count;
 }
 
-- (UIView *)headerView {
-    if (!_headerView) {
-        [[NSBundle mainBundle] loadNibNamed:@"ItemsHeader"
-                                      owner:self
-                                    options:nil];
-    }
-    
-    return _headerView;
-}
-
 - (void)tableView:(UITableView *)tableView
 didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (indexPath.row == ItemStore.sharedStore.allItems.count) { return; }
+    
     DetailsVC *details = [[DetailsVC alloc] init];
     NSArray *items = ItemStore.sharedStore.allItems;
     Item *item = items[indexPath.row];
@@ -169,16 +162,11 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
     
     [self.tableView insertRowsAtIndexPaths:@[indexPath]
                           withRowAnimation:UITableViewRowAnimationTop];
-}
-
-- (IBAction)toggleEditingMode:(id)sender {
-    if (self.isEditing) {
-        [sender setTitle:@"Edit" forState:UIControlStateNormal];
-        [self setEditing:NO animated:YES];
-    } else {
-        [sender setTitle:@"Done" forState:UIControlStateNormal];
-        [self setEditing:YES animated:YES];
-    }
+    
+    indexPath = [NSIndexPath indexPathForRow:lastRow + 1 inSection:0];
+    
+    [self.tableView reloadRowsAtIndexPaths:@[indexPath]
+                          withRowAnimation:UITableViewRowAnimationNone];
 }
 
 @end
