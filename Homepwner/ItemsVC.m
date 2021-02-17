@@ -8,6 +8,7 @@
 #import "ItemsVC.h"
 #import "ItemStore.h"
 #import "Item.h"
+#import "DetailsVC.h"
 
 
 @interface ItemsVC ()
@@ -35,11 +36,13 @@
     [self.tableView registerClass:[UITableViewCell class]
            forCellReuseIdentifier:@"UITableViewCell"];
     
-    UIView *header = self.headerView;
+    [self.tableView setTableHeaderView:self.headerView];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     
-    [self.tableView setTableHeaderView:header];
-    
-    self.navigationController.navigationBar.hidden = true;
+    [self.tableView reloadData];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView
@@ -146,6 +149,17 @@ canEditRowAtIndexPath:(NSIndexPath *)indexPath
     }
     
     return _headerView;
+}
+
+- (void)tableView:(UITableView *)tableView
+didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    DetailsVC *details = [[DetailsVC alloc] init];
+    NSArray *items = ItemStore.sharedStore.allItems;
+    Item *item = items[indexPath.row];
+    details.item = item;
+    
+    [self.navigationController pushViewController:details animated:YES];
 }
 
 - (IBAction)addNewItem:(id)sender {

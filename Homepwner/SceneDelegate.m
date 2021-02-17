@@ -22,7 +22,7 @@ willConnectToSession:(UISceneSession *)session
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.windowScene = (UIWindowScene *)scene;
     self.window.rootViewController = [[UINavigationController alloc]
-                                   initWithRootViewController:ItemsVC.new];
+                                      initWithRootViewController:ItemsVC.new];
     
     [self.window makeKeyAndVisible];
 }
