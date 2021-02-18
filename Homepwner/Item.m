@@ -69,7 +69,7 @@
 }
 
 - (NSString *)description {
-    return [NSString stringWithFormat:@"%@ (%@), Worth: %d, Recorded on %@",
+    return [NSString stringWithFormat:@"%@ (%@): $%d [%@]",
             self.itemName, self.serialNumber, self.valueDollars, self.dateCreated];
     
 }

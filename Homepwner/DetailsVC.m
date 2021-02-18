@@ -15,7 +15,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *nameField;
 @property (weak, nonatomic) IBOutlet UITextField *serialField;
 @property (weak, nonatomic) IBOutlet UITextField *valueField;
-@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
+@property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
 
 @end
 
@@ -42,16 +42,7 @@
     self.nameField.text = item.itemName;
     self.serialField.text = item.serialNumber;
     self.valueField.text = [NSString stringWithFormat:@"%d", item.valueDollars];
-    
-    static NSDateFormatter *dateFormatter;
-    
-    if (!dateFormatter) {
-        dateFormatter = [[NSDateFormatter alloc] init];
-        dateFormatter.dateStyle = NSDateFormatterMediumStyle;
-        dateFormatter.timeStyle = NSDateFormatterNoStyle;
-    }
-    
-    self.dateLabel.text = [dateFormatter stringFromDate:item.dateCreated];
+    self.datePicker.date = item.dateCreated;
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -63,6 +54,7 @@
     item.itemName = self.nameField.text;
     item.serialNumber = self.serialField.text;
     item.valueDollars = [self.valueField.text intValue];
+    item.dateCreated = self.datePicker.date;
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
@@ -78,5 +70,6 @@
     
     [self.view endEditing:YES];
 }
+
 
 @end
