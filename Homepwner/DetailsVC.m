@@ -28,6 +28,12 @@
     self.navigationItem.title = _item.itemName;
 }
 
+- (void)viewDidLoad {
+    _nameField.delegate = self;
+    _serialField.delegate = self;
+    _valueField.delegate = self;
+}
+
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
@@ -57,6 +63,20 @@
     item.itemName = self.nameField.text;
     item.serialNumber = self.serialField.text;
     item.valueDollars = [self.valueField.text intValue];
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    
+    return YES;
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches
+           withEvent:(UIEvent *)event
+{
+    [super touchesBegan:touches withEvent:event];
+    
+    [self.view endEditing:YES];
 }
 
 @end
