@@ -16,6 +16,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *serialField;
 @property (weak, nonatomic) IBOutlet UITextField *valueField;
 @property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
 
 @end
 
@@ -71,5 +73,7 @@
     [self.view endEditing:YES];
 }
 
+- (IBAction)snapPhoto:(id)sender {
+}
 
 @end
