@@ -11,7 +11,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @class Item;
 
-@interface DetailsVC : UIViewController <UITextFieldDelegate>
+@interface DetailsVC : UIViewController <
+    UITextFieldDelegate,
+    UINavigationControllerDelegate,
+    UIImagePickerControllerDelegate
+>
 
 @property (nonatomic, strong) Item *item;
 
