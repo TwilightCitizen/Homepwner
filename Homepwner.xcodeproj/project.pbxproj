@@ -12,6 +12,7 @@
 		302D33A125DBBF78008743CE /* ItemStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 302D33A025DBBF78008743CE /* ItemStore.m */; };
 		302D33A925DCFB58008743CE /* DetailsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 302D33A725DCFB58008743CE /* DetailsVC.m */; };
 		302D33AA25DCFB58008743CE /* DetailsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 302D33A825DCFB58008743CE /* DetailsVC.xib */; };
+		302D33B025DF2E07008743CE /* ImageStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 302D33AF25DF2E07008743CE /* ImageStore.m */; };
 		30867A4425D45736007AF6ED /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 30867A4325D45736007AF6ED /* AppDelegate.m */; };
 		30867A4725D45736007AF6ED /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 30867A4625D45736007AF6ED /* SceneDelegate.m */; };
 		30867A4F25D45738007AF6ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30867A4E25D45738007AF6ED /* Assets.xcassets */; };
@@ -29,6 +30,8 @@
 		302D33A625DCFB58008743CE /* DetailsVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailsVC.h; sourceTree = "<group>"; };
 		302D33A725DCFB58008743CE /* DetailsVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailsVC.m; sourceTree = "<group>"; };
 		302D33A825DCFB58008743CE /* DetailsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailsVC.xib; sourceTree = "<group>"; };
+		302D33AE25DF2E07008743CE /* ImageStore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageStore.h; sourceTree = "<group>"; };
+		302D33AF25DF2E07008743CE /* ImageStore.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageStore.m; sourceTree = "<group>"; };
 		30867A3F25D45736007AF6ED /* Homepwner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Homepwner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		30867A4225D45736007AF6ED /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		30867A4325D45736007AF6ED /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -85,6 +88,8 @@
 				301137A925D473430090975D /* Item.m */,
 				302D339F25DBBF78008743CE /* ItemStore.h */,
 				302D33A025DBBF78008743CE /* ItemStore.m */,
+				302D33AE25DF2E07008743CE /* ImageStore.h */,
+				302D33AF25DF2E07008743CE /* ImageStore.m */,
 				30867A4E25D45738007AF6ED /* Assets.xcassets */,
 				30867A5325D45738007AF6ED /* Info.plist */,
 				30867A5425D45738007AF6ED /* main.m */,
@@ -169,6 +174,7 @@
 				302D33A925DCFB58008743CE /* DetailsVC.m in Sources */,
 				30867A5525D45738007AF6ED /* main.m in Sources */,
 				30867A4725D45736007AF6ED /* SceneDelegate.m in Sources */,
+				302D33B025DF2E07008743CE /* ImageStore.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
