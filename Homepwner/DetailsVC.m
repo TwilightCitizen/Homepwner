@@ -90,6 +90,12 @@
     [self presentViewController:imagePicker animated:YES completion:nil];
 }
 
+- (IBAction)clearPhoto:(id)sender {
+    self.imageView.image = nil;
+    
+    [ImageStore.sharedStore deleteImageForKey:self.item.itemKey];
+}
+
 - (void)imagePickerController:(UIImagePickerController *)picker
 didFinishPickingMediaWithInfo:(NSDictionary<UIImagePickerControllerInfoKey,id> *)info
 {

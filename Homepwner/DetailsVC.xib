@@ -97,7 +97,11 @@
                                 <action selector="snapPhoto:" destination="-1" id="7Lg-YR-Gia"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem systemItem="trash" id="8Sd-gL-1rI"/>
+                        <barButtonItem systemItem="trash" id="8Sd-gL-1rI">
+                            <connections>
+                                <action selector="clearPhoto:" destination="-1" id="ixy-e6-6H8"/>
+                            </connections>
+                        </barButtonItem>
                     </items>
                 </toolbar>
             </subviews>
