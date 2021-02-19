@@ -38,9 +38,7 @@
     return self;
 }
 
-- (void)setImage:(UIImage *)image
-          forKey:(NSString *)key
-{
+- (void)setImage:(UIImage *)image forKey:(NSString *)key {
     self.images[key] = image;
 }
 - (UIImage *)imageForKey:(NSString *)key {

@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *serialNumber;
 @property (nonatomic) int valueDollars;
 @property (nonatomic, strong) NSDate *dateCreated;
+@property (nonatomic, copy) NSString *itemKey;
 
 + (instancetype)randomItem;
 

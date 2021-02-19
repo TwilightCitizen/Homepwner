@@ -7,6 +7,7 @@
 
 #import "DetailsVC.h"
 #import "Item.h"
+#import "ImageStore.h"
 
 
 
@@ -45,6 +46,7 @@
     self.serialField.text = item.serialNumber;
     self.valueField.text = [NSString stringWithFormat:@"%d", item.valueDollars];
     self.datePicker.date = item.dateCreated;
+    self.imageView.image = [ImageStore.sharedStore imageForKey:item.itemKey];;
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -94,6 +96,7 @@ didFinishPickingMediaWithInfo:(NSDictionary<UIImagePickerControllerInfoKey,id> *
     UIImage *image = info[UIImagePickerControllerOriginalImage];
     self.imageView.image = image;
     
+    [ImageStore.sharedStore setImage:image forKey:self.item.itemKey];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
