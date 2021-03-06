@@ -12,8 +12,7 @@
 
 @implementation ItemsVC
 
-- (instancetype)init
-{
+- (instancetype)init {
     return [self initWithStyle:UITableViewStylePlain];
 }
 

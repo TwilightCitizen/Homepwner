@@ -32,6 +32,8 @@
 }
 
 - (void)viewDidLoad {
+    [super viewDidLoad];
+    
     _nameField.delegate = self;
     _serialField.delegate = self;
     _valueField.delegate = self;
@@ -40,13 +42,20 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
+    [self prepareViewsForOrientation:UIApplication
+         .sharedApplication
+         .windows
+         .firstObject
+         .windowScene
+         .interfaceOrientation];
+    
     Item *item = self.item;
     
     self.nameField.text = item.itemName;
     self.serialField.text = item.serialNumber;
     self.valueField.text = [NSString stringWithFormat:@"%d", item.valueDollars];
     self.datePicker.date = item.dateCreated;
-    self.imageView.image = [ImageStore.sharedStore imageForKey:item.itemKey];;
+    self.imageView.image = [ImageStore.sharedStore imageForKey:item.itemKey];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -59,6 +68,39 @@
     item.serialNumber = self.serialField.text;
     item.valueDollars = [self.valueField.text intValue];
     item.dateCreated = self.datePicker.date;
+}
+
+- (void)prepareViewsForOrientation:(UIInterfaceOrientation)io {
+    if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) {
+        return;
+    }
+    
+    BOOL hideOrShow = UIInterfaceOrientationIsLandscape(io);
+    self.imageView.hidden = hideOrShow;
+    self.toolbar.hidden = hideOrShow;
+}
+
+- (void)viewWillTransitionToSize:(CGSize)size
+       withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator
+{
+    [super viewWillTransitionToSize:size withTransitionCoordinator:coordinator];
+    
+    void (^prepareBlock)(id<UIViewControllerTransitionCoordinatorContext> _Nonnull context) =
+        ^(id<UIViewControllerTransitionCoordinatorContext> _Nonnull context) {};
+    
+    void (^completeBlock)(id<UIViewControllerTransitionCoordinatorContext> _Nonnull context) =
+        ^(id<UIViewControllerTransitionCoordinatorContext> _Nonnull context)
+    {
+        [self prepareViewsForOrientation:UIApplication
+             .sharedApplication
+             .windows
+             .firstObject
+             .windowScene
+             .interfaceOrientation];
+    };
+    
+    [coordinator animateAlongsideTransition:prepareBlock
+                                 completion:completeBlock];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
