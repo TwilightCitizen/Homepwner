@@ -129,6 +129,12 @@
     
     imagePicker.delegate = self;
     
+    if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) {
+        imagePicker.modalPresentationStyle = UIModalPresentationPopover;
+        imagePicker.popoverPresentationController.barButtonItem = sender;
+        imagePicker.popoverPresentationController.permittedArrowDirections = UIPopoverArrowDirectionAny;
+    }
+    
     [self presentViewController:imagePicker animated:YES completion:nil];
 }
 
@@ -144,7 +150,7 @@ didFinishPickingMediaWithInfo:(NSDictionary<UIImagePickerControllerInfoKey,id> *
     UIImage *image = info[UIImagePickerControllerOriginalImage];
     self.imageView.image = image;
     
-    [ImageStore.sharedStore setImage:image forKey:self.item.itemKey];
+    [ImageStore.sharedStore setImage:image forKey:self.item.itemKey];   
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

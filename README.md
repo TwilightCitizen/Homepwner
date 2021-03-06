@@ -10,3 +10,4 @@ My code deviates from the book where necessary to account for changes in Apple's
 - The notification API used in the book thus far—not yet in _this_ app, at the time of this writing—is deprecated in favor of a new one.  Any notifications Homepwner may display will use the new API.
 - Objective-C now allows for class properties and unavailable initializers which can provide for a move convenient syntax and semantics for singleton objects like ItemStore.
 - ViewWillTransitionToSize replaces the deprecated *AnimateRotationToInterfaceOrientation methods.  Strangely, the orientation is not made available in the replacement method.  Instead, it needs to be determined by examining other objects.
+- UIPopoverController and its associated delegate are no longer needed to display popovers.  Now, popovers are easily displayed by simply changing a view controllers modal presentation style and associating a source view or bar button. 

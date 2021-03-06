@@ -14,7 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface DetailsVC : UIViewController <
     UITextFieldDelegate,
     UINavigationControllerDelegate,
-    UIImagePickerControllerDelegate
+    UIImagePickerControllerDelegate,
+    UIPopoverControllerDelegate
 >
 
 @property (nonatomic, strong) Item *item;
