@@ -19,7 +19,14 @@ NS_ASSUME_NONNULL_BEGIN
 >
 
 @property (nonatomic, strong) Item *item;
+@property (nonatomic, copy) void (^dismissBlock)(void);
 
+- (instancetype)initForNewItem:(BOOL)isNew NS_DESIGNATED_INITIALIZER;
+- (instancetype)init NS_UNAVAILABLE;
+- (instancetype)initWithCoder:(NSCoder *)coder NS_UNAVAILABLE;
+
+- (instancetype)initWithNibName:(nullable NSString *)nibNameOrNil
+                         bundle:(nullable NSBundle *)nibBundleOrNil NS_UNAVAILABLE;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -8,6 +8,7 @@
 #import "DetailsVC.h"
 #import "Item.h"
 #import "ImageStore.h"
+#import "ItemStore.h"
 
 
 
@@ -25,6 +26,38 @@
 
 
 @implementation DetailsVC
+
+- (instancetype)initForNewItem:(BOOL)isNew {
+    self = [super initWithNibName:nil bundle:nil];
+    
+    if (self && isNew ) {
+        UIBarButtonItem *doneItem = [[UIBarButtonItem alloc]
+             initWithBarButtonSystemItem:UIBarButtonSystemItemDone
+                                  target:self
+                                  action:@selector(save)];
+        
+        UIBarButtonItem *cancelItem = [[UIBarButtonItem alloc]
+            initWithBarButtonSystemItem:UIBarButtonSystemItemCancel
+                                 target:self
+                                 action:@selector(cancel)];
+        
+        self.navigationItem.rightBarButtonItem = doneItem;
+        self.navigationItem.leftBarButtonItem = cancelItem;
+    }
+    
+    return self;
+}
+
+- (void)save {
+    [self.presentingViewController dismissViewControllerAnimated:YES
+                                                      completion:self.dismissBlock];
+}
+
+- (void)cancel {
+    [ItemStore.sharedStore removeItem:self.item];
+    [self.presentingViewController dismissViewControllerAnimated:YES
+                                                      completion:nil];
+}
 
 - (void)setItem:(Item *)item {
     _item = item;

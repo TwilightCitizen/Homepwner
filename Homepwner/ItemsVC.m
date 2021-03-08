@@ -146,7 +146,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.row == ItemStore.sharedStore.allItems.count) { return; }
     
-    DetailsVC *details = [[DetailsVC alloc] init];
+    DetailsVC *details = [[DetailsVC alloc] initForNewItem:NO];
     NSArray *items = ItemStore.sharedStore.allItems;
     Item *item = items[indexPath.row];
     details.item = item;
@@ -156,16 +156,29 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 
 - (IBAction)addNewItem:(id)sender {
     Item *newItem = [ItemStore.sharedStore createItem];
-    NSInteger lastRow = [ItemStore.sharedStore.allItems indexOfObject:newItem];
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:lastRow inSection:0];
+    DetailsVC *details = [[DetailsVC alloc] initForNewItem:YES];
     
-    [self.tableView insertRowsAtIndexPaths:@[indexPath]
-                          withRowAnimation:UITableViewRowAnimationTop];
+    details.item = newItem;
     
-    indexPath = [NSIndexPath indexPathForRow:lastRow + 1 inSection:0];
+    details.dismissBlock = ^{
+        NSInteger lastRow = [ItemStore.sharedStore.allItems indexOfObject:newItem];
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:lastRow inSection:0];
+        
+        [self.tableView insertRowsAtIndexPaths:@[indexPath]
+                              withRowAnimation:UITableViewRowAnimationTop];
+        
+        indexPath = [NSIndexPath indexPathForRow:lastRow + 1 inSection:0];
+        
+        [self.tableView reloadRowsAtIndexPaths:@[indexPath]
+                              withRowAnimation:UITableViewRowAnimationNone];
+    };
     
-    [self.tableView reloadRowsAtIndexPaths:@[indexPath]
-                          withRowAnimation:UITableViewRowAnimationNone];
+    UINavigationController *navContoller = [[UINavigationController alloc]
+                                            initWithRootViewController:details];
+    
+    navContoller.modalPresentationStyle = UIModalPresentationFormSheet;
+    
+    [self presentViewController:navContoller animated:YES completion:nil];
 }
 
 @end
