@@ -7,6 +7,7 @@
 
 #import "SceneDelegate.h"
 #import "ItemsVC.h"
+#import "ItemStore.h"
 
 @interface SceneDelegate ()
 
@@ -31,6 +32,9 @@ willConnectToSession:(UISceneSession *)session
 - (void)sceneDidBecomeActive:(UIScene *)scene {}
 - (void)sceneWillResignActive:(UIScene *)scene {}
 - (void)sceneWillEnterForeground:(UIScene *)scene {}
-- (void)sceneDidEnterBackground:(UIScene *)scene {}
+
+- (void)sceneDidEnterBackground:(UIScene *)scene {
+    [ItemStore.sharedStore saveChanges];
+}
 
 @end

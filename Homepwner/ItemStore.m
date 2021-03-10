@@ -37,7 +37,18 @@
     self = [super init];
     
     if (self) {
-        _privateItems = [[NSMutableArray alloc] init];
+        NSString *path = [self itemArchivePath];
+        NSData *data = [NSData dataWithContentsOfFile:path];
+        NSError *error = nil;
+        NSKeyedUnarchiver *unarch = [[NSKeyedUnarchiver alloc] initForReadingFromData:data error:&error];
+        
+        unarch.requiresSecureCoding = false;
+        
+        _privateItems = [[unarch decodeTopLevelObjectOfClass:NSArray.class forKey:@"root" error:&error] mutableCopy];
+        
+        if (!_privateItems) {
+            _privateItems = [[NSMutableArray alloc] init];
+        }
     }
     
     return self;
@@ -48,7 +59,7 @@
 }
 
 - (Item *)createItem {
-    Item *item = [Item randomItem];
+    Item *item = [[Item alloc] init];
     
     [self.privateItems addObject:item];
     
@@ -69,6 +80,24 @@
     
     [self.privateItems removeObjectAtIndex:fromIndex];
     [self.privateItems insertObject:item atIndex:toIndex];
+}
+
+- (NSString *)itemArchivePath {
+    NSArray *docDirs = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *docDir = [docDirs firstObject];
+    
+    return [docDir stringByAppendingPathComponent:@"items.archive"];
+}
+
+- (BOOL)saveChanges {
+    NSString *path = [self itemArchivePath];
+    NSError *error = nil;
+    
+    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:self.privateItems
+                                         requiringSecureCoding:NO
+                                                         error:&error];
+    
+    return [data writeToFile:path options:NSDataWritingAtomic error:nil];
 }
 
 @end
