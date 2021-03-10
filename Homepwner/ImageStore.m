@@ -35,20 +35,57 @@
     
     if (self) {
         _images = [[NSMutableDictionary alloc] init];
+        
+        NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+        
+        [nc addObserver:self
+               selector:@selector(clearCache)
+                   name:UIApplicationDidReceiveMemoryWarningNotification
+                 object:nil];
     }
     
     return self;
 }
 
+- (void)clearCache {
+    [self.images removeAllObjects];
+}
+
 - (void)setImage:(UIImage *)image forKey:(NSString *)key {
     self.images[key] = image;
+    
+    NSString *imagePath = [self imagePathForKey:key];
+    NSData *data = UIImageJPEGRepresentation(image, 0.5);
+    
+    [data writeToFile:imagePath atomically:YES];
 }
 - (UIImage *)imageForKey:(NSString *)key {
-    return self.images[key];
+    UIImage *image = self.images[key];
+    
+    if (!image) {
+        NSString *imagePath = [self imagePathForKey:key];
+        
+        image = [UIImage imageWithContentsOfFile:imagePath];
+        
+        if (image) { self.images[key] = image; }
+    }
+    
+    return image;
 }
 
 - (void)deleteImageForKey:(NSString *)key {
     [self.images removeObjectForKey:key];
+    
+    NSString *imagePath = [self imagePathForKey:key];
+    
+    [[NSFileManager defaultManager] removeItemAtPath:imagePath error:nil];
+}
+
+- (NSString *)imagePathForKey:(NSString *)key {
+    NSArray *docDirs = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *docDir = [docDirs firstObject];
+    
+    return [docDir stringByAppendingPathComponent:key];
 }
 
 @end
