@@ -5,7 +5,7 @@
 //  Created by David Clark on 11/24/20.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -16,6 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) int valueDollars;
 @property (nonatomic, strong) NSDate *dateCreated;
 @property (nonatomic, copy) NSString *itemKey;
+@property (nonatomic, strong) UIImage *thumbnail;
 
 + (instancetype)randomItem;
 
@@ -27,6 +28,8 @@ NS_ASSUME_NONNULL_BEGIN
                     serialNumber:(NSString *)serial;
 
 - (instancetype)initWithItemName:(NSString*)name;
+
+- (void)setThumbnailFromImage:(UIImage *)image;
 
 @end
 

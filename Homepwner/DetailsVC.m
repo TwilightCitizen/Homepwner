@@ -183,6 +183,7 @@ didFinishPickingMediaWithInfo:(NSDictionary<UIImagePickerControllerInfoKey,id> *
     UIImage *image = info[UIImagePickerControllerOriginalImage];
     self.imageView.image = image;
     
+    [self.item setThumbnailFromImage:image];
     [ImageStore.sharedStore setImage:image forKey:self.item.itemKey];   
     [self dismissViewControllerAnimated:YES completion:nil];
 }

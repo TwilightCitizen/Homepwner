@@ -72,6 +72,7 @@
         cell.nameLabel.text = item.itemName;
         cell.serialLabel.text = item.serialNumber;
         cell.valueLabel.text = [NSString stringWithFormat:@"%d", item.valueDollars];
+        cell.thumbView.image = item.thumbnail;
         
         return cell;
     }
