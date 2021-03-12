@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		301137A425D470C50090975D /* ItemsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 301137A325D470C50090975D /* ItemsVC.m */; };
 		301137AA25D473430090975D /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 301137A925D473430090975D /* Item.m */; };
+		3025555D25FAEC4D00FC6B56 /* ItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3025555B25FAEC4D00FC6B56 /* ItemCell.m */; };
+		3025555E25FAEC4D00FC6B56 /* ItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3025555C25FAEC4D00FC6B56 /* ItemCell.xib */; };
 		302D33A125DBBF78008743CE /* ItemStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 302D33A025DBBF78008743CE /* ItemStore.m */; };
 		302D33A925DCFB58008743CE /* DetailsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 302D33A725DCFB58008743CE /* DetailsVC.m */; };
 		302D33AA25DCFB58008743CE /* DetailsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 302D33A825DCFB58008743CE /* DetailsVC.xib */; };
@@ -25,6 +27,9 @@
 		301137A325D470C50090975D /* ItemsVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ItemsVC.m; sourceTree = "<group>"; };
 		301137A825D473430090975D /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
 		301137A925D473430090975D /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item.m; sourceTree = "<group>"; };
+		3025555A25FAEC4D00FC6B56 /* ItemCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ItemCell.h; sourceTree = "<group>"; };
+		3025555B25FAEC4D00FC6B56 /* ItemCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ItemCell.m; sourceTree = "<group>"; };
+		3025555C25FAEC4D00FC6B56 /* ItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemCell.xib; sourceTree = "<group>"; };
 		302D339F25DBBF78008743CE /* ItemStore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ItemStore.h; sourceTree = "<group>"; };
 		302D33A025DBBF78008743CE /* ItemStore.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ItemStore.m; sourceTree = "<group>"; };
 		302D33A625DCFB58008743CE /* DetailsVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailsVC.h; sourceTree = "<group>"; };
@@ -81,6 +86,9 @@
 				30867A4625D45736007AF6ED /* SceneDelegate.m */,
 				301137A225D470C50090975D /* ItemsVC.h */,
 				301137A325D470C50090975D /* ItemsVC.m */,
+				3025555A25FAEC4D00FC6B56 /* ItemCell.h */,
+				3025555B25FAEC4D00FC6B56 /* ItemCell.m */,
+				3025555C25FAEC4D00FC6B56 /* ItemCell.xib */,
 				302D33A625DCFB58008743CE /* DetailsVC.h */,
 				302D33A725DCFB58008743CE /* DetailsVC.m */,
 				302D33A825DCFB58008743CE /* DetailsVC.xib */,
@@ -154,6 +162,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3025555E25FAEC4D00FC6B56 /* ItemCell.xib in Resources */,
 				30867A6025D45C51007AF6ED /* Launch.xib in Resources */,
 				302D33AA25DCFB58008743CE /* DetailsVC.xib in Resources */,
 				30867A4F25D45738007AF6ED /* Assets.xcassets in Resources */,
@@ -167,6 +176,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3025555D25FAEC4D00FC6B56 /* ItemCell.m in Sources */,
 				301137AA25D473430090975D /* Item.m in Sources */,
 				30867A4425D45736007AF6ED /* AppDelegate.m in Sources */,
 				302D33A125DBBF78008743CE /* ItemStore.m in Sources */,

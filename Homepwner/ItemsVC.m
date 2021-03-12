@@ -9,6 +9,7 @@
 #import "ItemStore.h"
 #import "Item.h"
 #import "DetailsVC.h"
+#import "ItemCell.h"
 
 @implementation ItemsVC
 
@@ -38,8 +39,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self.tableView registerClass:[UITableViewCell class]
-           forCellReuseIdentifier:@"UITableViewCell"];
+    UINib *nib = [UINib nibWithNibName:@"ItemCell" bundle:nil];
+    
+    [self.tableView registerNib:nib forCellReuseIdentifier:@"ItemCell"];
+    [self.tableView registerClass:UITableViewCell.class forCellReuseIdentifier:@"OtherCell"];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -57,21 +60,26 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView
-                             dequeueReusableCellWithIdentifier:@"UITableViewCell"
-                             forIndexPath:indexPath];
-    
     NSInteger count = ItemStore.sharedStore.allItems.count;
     
     if (indexPath.row < count) {
         NSArray *items = ItemStore.sharedStore.allItems;
         Item *item = items[indexPath.row];
-        cell.textLabel.text = item.description;
-    } else if (count == 0) {
-        cell.textLabel.text = @"No Items";
-    } else {
-        cell.textLabel.text = @"No More Items";
+        
+        ItemCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ItemCell"
+                                                         forIndexPath:indexPath];
+        
+        cell.nameLabel.text = item.itemName;
+        cell.serialLabel.text = item.serialNumber;
+        cell.valueLabel.text = [NSString stringWithFormat:@"%d", item.valueDollars];
+        
+        return cell;
     }
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"OtherCell"
+                                                            forIndexPath:indexPath];
+    
+    cell.textLabel.text = count == 0 ? @"No Items" : @"No More Items";
     
     return cell;
 }
