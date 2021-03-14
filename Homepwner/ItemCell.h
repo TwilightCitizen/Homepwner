@@ -16,6 +16,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *serialLabel;
 @property (weak, nonatomic) IBOutlet UILabel *valueLabel;
 
+@property (copy, nonatomic) void(^actionBlock)(void);
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -22,27 +22,36 @@
                             <constraint firstAttribute="width" secondItem="20j-Wb-x5h" secondAttribute="height" id="hqq-h1-k0w"/>
                         </constraints>
                     </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QWF-cl-S8n">
+                        <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
+                        <state key="normal" title="Button"/>
+                        <connections>
+                            <action selector="showImage:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Vwg-nc-rxY"/>
+                        </connections>
+                    </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" text="Value" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EbU-JR-jkB">
                         <rect key="frame" x="278" y="0.0" width="42" height="44"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zw1-UB-yWe">
-                        <rect key="frame" x="44" y="2" width="234" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zw1-UB-yWe">
+                        <rect key="frame" x="44" y="0.0" width="234" height="22"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Serial" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NtR-NG-PxS">
-                        <rect key="frame" x="44" y="23" width="234" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Serial" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NtR-NG-PxS">
+                        <rect key="frame" x="44" y="22" width="234" height="22"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="QWF-cl-S8n" firstAttribute="leading" secondItem="20j-Wb-x5h" secondAttribute="leading" id="50A-IH-44X"/>
                     <constraint firstAttribute="trailing" secondItem="EbU-JR-jkB" secondAttribute="trailing" id="7vD-pY-dZI"/>
+                    <constraint firstItem="zw1-UB-yWe" firstAttribute="height" secondItem="NtR-NG-PxS" secondAttribute="height" id="EUt-S1-SVw"/>
                     <constraint firstItem="20j-Wb-x5h" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="EqS-yk-Ewi"/>
                     <constraint firstItem="zw1-UB-yWe" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Gfu-Z1-vOg"/>
                     <constraint firstItem="NtR-NG-PxS" firstAttribute="top" secondItem="zw1-UB-yWe" secondAttribute="bottom" id="Ipd-n9-wNv"/>
@@ -52,10 +61,12 @@
                     <constraint firstItem="NtR-NG-PxS" firstAttribute="leading" secondItem="20j-Wb-x5h" secondAttribute="trailing" id="WK6-oR-ofb"/>
                     <constraint firstItem="zw1-UB-yWe" firstAttribute="leading" secondItem="20j-Wb-x5h" secondAttribute="trailing" id="iXs-FE-boh"/>
                     <constraint firstAttribute="bottom" secondItem="NtR-NG-PxS" secondAttribute="bottom" id="j5G-1u-Yyx"/>
-                    <constraint firstItem="NtR-NG-PxS" firstAttribute="top" secondItem="zw1-UB-yWe" secondAttribute="bottom" id="lbf-TA-JTw"/>
+                    <constraint firstItem="QWF-cl-S8n" firstAttribute="trailing" secondItem="20j-Wb-x5h" secondAttribute="trailing" id="jL7-zH-B5X"/>
                     <constraint firstItem="EbU-JR-jkB" firstAttribute="leading" secondItem="zw1-UB-yWe" secondAttribute="trailing" id="oPb-rs-4NV"/>
                     <constraint firstAttribute="bottom" secondItem="20j-Wb-x5h" secondAttribute="bottom" id="pAX-EF-iNl"/>
+                    <constraint firstItem="QWF-cl-S8n" firstAttribute="bottom" secondItem="20j-Wb-x5h" secondAttribute="bottom" id="pDJ-ID-O8r"/>
                     <constraint firstItem="EbU-JR-jkB" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="yvo-hl-QHJ"/>
+                    <constraint firstItem="QWF-cl-S8n" firstAttribute="top" secondItem="20j-Wb-x5h" secondAttribute="top" id="z6K-jF-QKz"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>

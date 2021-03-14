@@ -162,7 +162,7 @@
     
     imagePicker.delegate = self;
     
-    if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) {
+    if (UIDevice.currentDevice.userInterfaceIdiom == UIUserInterfaceIdiomPad) {
         imagePicker.modalPresentationStyle = UIModalPresentationPopover;
         imagePicker.popoverPresentationController.barButtonItem = sender;
         imagePicker.popoverPresentationController.permittedArrowDirections = UIPopoverArrowDirectionAny;

@@ -10,6 +10,8 @@
 #import "Item.h"
 #import "DetailsVC.h"
 #import "ItemCell.h"
+#import "ImageStore.h"
+#import "ImageVC.h"
 
 @implementation ItemsVC
 
@@ -73,6 +75,27 @@
         cell.serialLabel.text = item.serialNumber;
         cell.valueLabel.text = [NSString stringWithFormat:@"%d", item.valueDollars];
         cell.thumbView.image = item.thumbnail;
+        
+        __weak ItemCell *weakCell = cell;
+        
+        cell.actionBlock = ^{
+            NSString *itemKey = item.itemKey;
+            UIImage *image = [ImageStore.sharedStore imageForKey:itemKey];
+            
+            if (!image) { return; }
+            
+            ImageVC *imageVC = [[ImageVC alloc] init];
+            
+            imageVC.image = image;
+            
+            if (UIDevice.currentDevice.userInterfaceIdiom == UIUserInterfaceIdiomPad) {
+                imageVC.modalPresentationStyle = UIModalPresentationPopover;
+                imageVC.popoverPresentationController.sourceView = weakCell.imageView;
+                imageVC.popoverPresentationController.permittedArrowDirections = UIPopoverArrowDirectionAny;
+            }
+        
+            [self presentViewController:imageVC animated:YES completion:nil];
+        };
         
         return cell;
     }
