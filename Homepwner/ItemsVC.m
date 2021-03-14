@@ -85,12 +85,13 @@
             if (!image) { return; }
             
             ImageVC *imageVC = [[ImageVC alloc] init];
+            ItemCell *strongCell = weakCell;
             
             imageVC.image = image;
             
             if (UIDevice.currentDevice.userInterfaceIdiom == UIUserInterfaceIdiomPad) {
                 imageVC.modalPresentationStyle = UIModalPresentationPopover;
-                imageVC.popoverPresentationController.sourceView = weakCell.imageView;
+                imageVC.popoverPresentationController.sourceView = strongCell.imageView;
                 imageVC.popoverPresentationController.permittedArrowDirections = UIPopoverArrowDirectionAny;
             }
         
