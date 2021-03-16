@@ -20,6 +20,11 @@
 @property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *serialLabel;
+@property (weak, nonatomic) IBOutlet UILabel *valueLabel;
+@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
+@property (weak, nonatomic) IBOutlet UILabel *photoLabel;
 
 @end
 
@@ -45,7 +50,19 @@
         self.navigationItem.leftBarButtonItem = cancelItem;
     }
     
+    NSNotificationCenter *ns = [NSNotificationCenter defaultCenter];
+    
+    [ns addObserver:self selector:@selector(updateFonts)
+               name:UIContentSizeCategoryDidChangeNotification
+             object:nil];
+    
     return self;
+}
+
+- (void)dealloc{
+    NSNotificationCenter *ns = [NSNotificationCenter defaultCenter];
+    
+    [ns removeObserver:self];
 }
 
 - (void)save {
@@ -72,6 +89,19 @@
     _valueField.delegate = self;
 }
 
+- (void)updateFonts {
+    UIFont *font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
+    
+    self.nameField.font = font;
+    self.serialField.font = font;
+    self.valueField.font = font;
+    self.nameLabel.font = font;
+    self.serialLabel.font = font;
+    self.valueLabel.font = font;
+    self.dateLabel.font = font;
+    self.photoLabel.font = font;
+}
+
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
@@ -89,6 +119,8 @@
     self.valueField.text = [NSString stringWithFormat:@"%d", item.valueDollars];
     self.datePicker.date = item.dateCreated;
     self.imageView.image = [ImageStore.sharedStore imageForKey:item.itemKey];
+    
+    [self updateFonts];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {

@@ -10,12 +10,17 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailsVC">
             <connections>
+                <outlet property="dateLabel" destination="eBT-c4-CsL" id="U7u-UV-GqA"/>
                 <outlet property="datePicker" destination="Ztv-kF-cfS" id="GX8-TV-qxR"/>
                 <outlet property="imageView" destination="YpT-Hd-6g5" id="c7L-fd-mS7"/>
                 <outlet property="nameField" destination="866-Xx-8v4" id="qzi-FX-dfg"/>
+                <outlet property="nameLabel" destination="lIc-gF-Nbc" id="R5e-Hh-5hV"/>
+                <outlet property="photoLabel" destination="y6A-EN-VgP" id="n84-gw-bmy"/>
                 <outlet property="serialField" destination="4eb-VT-n7D" id="XVH-bj-8Du"/>
+                <outlet property="serialLabel" destination="jMK-dq-WFv" id="RFt-DP-Zqm"/>
                 <outlet property="toolbar" destination="bg7-8D-LaG" id="iad-S5-crY"/>
                 <outlet property="valueField" destination="cxa-Lf-JFa" id="KLt-JB-Yhd"/>
+                <outlet property="valueLabel" destination="IKB-19-0cu" id="vBs-gq-yct"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
