@@ -33,9 +33,21 @@
         
         navItem.rightBarButtonItem = bbi;
         navItem.leftBarButtonItem = self.editButtonItem;
+        
+        NSNotificationCenter *ns = [NSNotificationCenter defaultCenter];
+        
+        [ns addObserver:self selector:@selector(updateTableViewForDynamicTypeSize)
+                   name:UIContentSizeCategoryDidChangeNotification
+                 object:nil];
     }
     
     return self;
+}
+
+- (void)dealloc{
+    NSNotificationCenter *ns = [NSNotificationCenter defaultCenter];
+    
+    [ns removeObserver:self];
 }
 
 - (void)viewDidLoad {
@@ -50,6 +62,28 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
+    [self updateTableViewForDynamicTypeSize];
+}
+
+- (void)updateTableViewForDynamicTypeSize {
+    static NSDictionary *cellHeights;
+    
+    if (!cellHeights) {
+        cellHeights = @{
+            UIContentSizeCategoryExtraSmall : @44,
+            UIContentSizeCategorySmall : @44,
+            UIContentSizeCategoryMedium : @44,
+            UIContentSizeCategoryLarge : @44,
+            UIContentSizeCategoryExtraLarge : @55,
+            UIContentSizeCategoryExtraExtraLarge : @65,
+            UIContentSizeCategoryExtraExtraExtraLarge : @75
+        };
+    }
+    
+    NSString *userSize = [[UIApplication sharedApplication] preferredContentSizeCategory];
+    NSNumber *cellHeight = cellHeights[userSize];
+    
+    [self.tableView setRowHeight:cellHeight.floatValue];
     [self.tableView reloadData];
 }
 
