@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		301137A425D470C50090975D /* ItemsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 301137A325D470C50090975D /* ItemsVC.m */; };
-		301137AA25D473430090975D /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 301137A925D473430090975D /* Item.m */; };
 		3025555D25FAEC4D00FC6B56 /* ItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3025555B25FAEC4D00FC6B56 /* ItemCell.m */; };
 		3025555E25FAEC4D00FC6B56 /* ItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3025555C25FAEC4D00FC6B56 /* ItemCell.xib */; };
 		3025556325FD82F700FC6B56 /* ImageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3025556225FD82F700FC6B56 /* ImageVC.m */; };
@@ -16,6 +15,11 @@
 		302D33A925DCFB58008743CE /* DetailsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 302D33A725DCFB58008743CE /* DetailsVC.m */; };
 		302D33AA25DCFB58008743CE /* DetailsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 302D33A825DCFB58008743CE /* DetailsVC.xib */; };
 		302D33B025DF2E07008743CE /* ImageStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 302D33AF25DF2E07008743CE /* ImageStore.m */; };
+		304B0370260D535E0020CE90 /* AssetTypeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 304B036F260D535E0020CE90 /* AssetTypeVC.m */; };
+		304F6857260824BE00DDB041 /* ImageTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 304F6856260824BE00DDB041 /* ImageTransformer.m */; };
+		305B29F726082B3C0080A994 /* Homepwner.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 305B29F526082B3C0080A994 /* Homepwner.xcdatamodeld */; };
+		305B2A06260971530080A994 /* Item+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 305B2A04260971530080A994 /* Item+CoreDataClass.m */; };
+		305B2A07260971530080A994 /* Item+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 305B2A05260971530080A994 /* Item+CoreDataProperties.m */; };
 		30867A4425D45736007AF6ED /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 30867A4325D45736007AF6ED /* AppDelegate.m */; };
 		30867A4725D45736007AF6ED /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 30867A4625D45736007AF6ED /* SceneDelegate.m */; };
 		30867A4F25D45738007AF6ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30867A4E25D45738007AF6ED /* Assets.xcassets */; };
@@ -26,8 +30,6 @@
 /* Begin PBXFileReference section */
 		301137A225D470C50090975D /* ItemsVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ItemsVC.h; sourceTree = "<group>"; };
 		301137A325D470C50090975D /* ItemsVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ItemsVC.m; sourceTree = "<group>"; };
-		301137A825D473430090975D /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
-		301137A925D473430090975D /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item.m; sourceTree = "<group>"; };
 		3025555A25FAEC4D00FC6B56 /* ItemCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ItemCell.h; sourceTree = "<group>"; };
 		3025555B25FAEC4D00FC6B56 /* ItemCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ItemCell.m; sourceTree = "<group>"; };
 		3025555C25FAEC4D00FC6B56 /* ItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemCell.xib; sourceTree = "<group>"; };
@@ -40,6 +42,15 @@
 		302D33A825DCFB58008743CE /* DetailsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailsVC.xib; sourceTree = "<group>"; };
 		302D33AE25DF2E07008743CE /* ImageStore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageStore.h; sourceTree = "<group>"; };
 		302D33AF25DF2E07008743CE /* ImageStore.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageStore.m; sourceTree = "<group>"; };
+		304B036E260D535E0020CE90 /* AssetTypeVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AssetTypeVC.h; sourceTree = "<group>"; };
+		304B036F260D535E0020CE90 /* AssetTypeVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AssetTypeVC.m; sourceTree = "<group>"; };
+		304F6855260824BE00DDB041 /* ImageTransformer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageTransformer.h; sourceTree = "<group>"; };
+		304F6856260824BE00DDB041 /* ImageTransformer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageTransformer.m; sourceTree = "<group>"; };
+		305B29F626082B3C0080A994 /* Homepwner.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Homepwner.xcdatamodel; sourceTree = "<group>"; };
+		305B2A02260971530080A994 /* Item+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Item+CoreDataProperties.h"; sourceTree = "<group>"; };
+		305B2A03260971530080A994 /* Item+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Item+CoreDataClass.h"; sourceTree = "<group>"; };
+		305B2A04260971530080A994 /* Item+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Item+CoreDataClass.m"; sourceTree = "<group>"; };
+		305B2A05260971530080A994 /* Item+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Item+CoreDataProperties.m"; sourceTree = "<group>"; };
 		30867A3F25D45736007AF6ED /* Homepwner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Homepwner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		30867A4225D45736007AF6ED /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		30867A4325D45736007AF6ED /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -66,6 +77,10 @@
 		30867A3625D45736007AF6ED = {
 			isa = PBXGroup;
 			children = (
+				305B2A02260971530080A994 /* Item+CoreDataProperties.h */,
+				305B2A03260971530080A994 /* Item+CoreDataClass.h */,
+				305B2A04260971530080A994 /* Item+CoreDataClass.m */,
+				305B2A05260971530080A994 /* Item+CoreDataProperties.m */,
 				30867A5C25D4593A007AF6ED /* README.md */,
 				30867A4125D45736007AF6ED /* Homepwner */,
 				30867A4025D45736007AF6ED /* Products */,
@@ -97,16 +112,19 @@
 				302D33A625DCFB58008743CE /* DetailsVC.h */,
 				302D33A725DCFB58008743CE /* DetailsVC.m */,
 				302D33A825DCFB58008743CE /* DetailsVC.xib */,
-				301137A825D473430090975D /* Item.h */,
-				301137A925D473430090975D /* Item.m */,
+				304B036E260D535E0020CE90 /* AssetTypeVC.h */,
+				304B036F260D535E0020CE90 /* AssetTypeVC.m */,
 				302D339F25DBBF78008743CE /* ItemStore.h */,
 				302D33A025DBBF78008743CE /* ItemStore.m */,
 				302D33AE25DF2E07008743CE /* ImageStore.h */,
 				302D33AF25DF2E07008743CE /* ImageStore.m */,
-				30867A4E25D45738007AF6ED /* Assets.xcassets */,
+				304F6855260824BE00DDB041 /* ImageTransformer.h */,
+				304F6856260824BE00DDB041 /* ImageTransformer.m */,
+				305B29F526082B3C0080A994 /* Homepwner.xcdatamodeld */,
 				30867A5325D45738007AF6ED /* Info.plist */,
 				30867A5425D45738007AF6ED /* main.m */,
 				30867A5F25D45C51007AF6ED /* Launch.xib */,
+				30867A4E25D45738007AF6ED /* Assets.xcassets */,
 			);
 			path = Homepwner;
 			sourceTree = "<group>";
@@ -183,14 +201,18 @@
 			files = (
 				3025556325FD82F700FC6B56 /* ImageVC.m in Sources */,
 				3025555D25FAEC4D00FC6B56 /* ItemCell.m in Sources */,
-				301137AA25D473430090975D /* Item.m in Sources */,
 				30867A4425D45736007AF6ED /* AppDelegate.m in Sources */,
 				302D33A125DBBF78008743CE /* ItemStore.m in Sources */,
 				301137A425D470C50090975D /* ItemsVC.m in Sources */,
+				304F6857260824BE00DDB041 /* ImageTransformer.m in Sources */,
+				305B2A07260971530080A994 /* Item+CoreDataProperties.m in Sources */,
+				305B29F726082B3C0080A994 /* Homepwner.xcdatamodeld in Sources */,
 				302D33A925DCFB58008743CE /* DetailsVC.m in Sources */,
 				30867A5525D45738007AF6ED /* main.m in Sources */,
 				30867A4725D45736007AF6ED /* SceneDelegate.m in Sources */,
+				305B2A06260971530080A994 /* Item+CoreDataClass.m in Sources */,
 				302D33B025DF2E07008743CE /* ImageStore.m in Sources */,
+				304B0370260D535E0020CE90 /* AssetTypeVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -367,6 +389,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		305B29F526082B3C0080A994 /* Homepwner.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				305B29F626082B3C0080A994 /* Homepwner.xcdatamodel */,
+			);
+			currentVersion = 305B29F626082B3C0080A994 /* Homepwner.xcdatamodel */;
+			path = Homepwner.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 30867A3725D45736007AF6ED /* Project object */;
 }

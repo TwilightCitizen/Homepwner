@@ -6,9 +6,10 @@
 //
 
 #import "DetailsVC.h"
-#import "Item.h"
+#import "Item+CoreDataClass.h"
 #import "ImageStore.h"
 #import "ItemStore.h"
+#import "AssetTypeVC.h"
 
 
 
@@ -18,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *serialField;
 @property (weak, nonatomic) IBOutlet UITextField *valueField;
 @property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
+@property (weak, nonatomic) IBOutlet UIButton *assetType;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
@@ -120,6 +122,14 @@
     self.datePicker.date = item.dateCreated;
     self.imageView.image = [ImageStore.sharedStore imageForKey:item.itemKey];
     
+    NSString *typeLabel = [(NSManagedObject *)self.item.assetType valueForKey:@"label"];
+    
+    typeLabel = !typeLabel ? @"Asset Type: None" :
+        [NSString stringWithFormat:@"Asset Type: %@", typeLabel];
+    
+    [self.assetType setTitle:typeLabel
+                    forState:UIControlStateNormal];
+    
     [self updateFonts];
 }
 
@@ -219,5 +229,17 @@ didFinishPickingMediaWithInfo:(NSDictionary<UIImagePickerControllerInfoKey,id> *
     [ImageStore.sharedStore setImage:image forKey:self.item.itemKey];   
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
+- (IBAction)showAssetTypePicker:(id)sender {
+    [self.view endEditing:YES];
+    
+    AssetTypeVC *assetTypeVC = [[AssetTypeVC alloc] init];
+    
+    assetTypeVC.item = self.item;
+    
+    [self.navigationController pushViewController:assetTypeVC
+                                         animated:YES];
+}
+
 
 @end

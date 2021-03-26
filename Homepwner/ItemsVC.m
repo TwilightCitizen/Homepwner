@@ -7,7 +7,7 @@
 
 #import "ItemsVC.h"
 #import "ItemStore.h"
-#import "Item.h"
+#import "Item+CoreDataClass.h"
 #import "DetailsVC.h"
 #import "ItemCell.h"
 #import "ImageStore.h"

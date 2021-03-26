@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (class, nonatomic, readonly) ItemStore *sharedStore;
 @property (nonatomic, readonly, copy) NSArray *allItems;
+@property (nonatomic, readonly, copy) NSArray *allAssetTypes;
 
 - (instancetype)init NS_UNAVAILABLE;
 - (Item *)createItem;
