@@ -77,10 +77,6 @@
 		30867A3625D45736007AF6ED = {
 			isa = PBXGroup;
 			children = (
-				305B2A02260971530080A994 /* Item+CoreDataProperties.h */,
-				305B2A03260971530080A994 /* Item+CoreDataClass.h */,
-				305B2A04260971530080A994 /* Item+CoreDataClass.m */,
-				305B2A05260971530080A994 /* Item+CoreDataProperties.m */,
 				30867A5C25D4593A007AF6ED /* README.md */,
 				30867A4125D45736007AF6ED /* Homepwner */,
 				30867A4025D45736007AF6ED /* Products */,
@@ -114,6 +110,10 @@
 				302D33A825DCFB58008743CE /* DetailsVC.xib */,
 				304B036E260D535E0020CE90 /* AssetTypeVC.h */,
 				304B036F260D535E0020CE90 /* AssetTypeVC.m */,
+				305B2A02260971530080A994 /* Item+CoreDataProperties.h */,
+				305B2A03260971530080A994 /* Item+CoreDataClass.h */,
+				305B2A04260971530080A994 /* Item+CoreDataClass.m */,
+				305B2A05260971530080A994 /* Item+CoreDataProperties.m */,
 				302D339F25DBBF78008743CE /* ItemStore.h */,
 				302D33A025DBBF78008743CE /* ItemStore.m */,
 				302D33AE25DF2E07008743CE /* ImageStore.h */,
