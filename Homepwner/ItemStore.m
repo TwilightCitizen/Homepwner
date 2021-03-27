@@ -142,15 +142,15 @@
 
 - (void)loadAllItems {
     if (!self.privateItems) {
-        NSFetchRequest *request = [[NSFetchRequest alloc] init];
+        NSFetchRequest *request = [Item fetchRequest]; //[[NSFetchRequest alloc] init];
         
-        NSEntityDescription *entity = [NSEntityDescription entityForName:@"Item"
-                                                  inManagedObjectContext:self.context];
+        //NSEntityDescription *entity = [NSEntityDescription entityForName:@"Item"
+        //                                          inManagedObjectContext:self.context];
         
         NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:@"orderingValue"
                                                                ascending:YES];
         
-        request.entity = entity;
+        //request.entity = entity;
         request.sortDescriptors = @[sort];
         
         NSError *error = nil;
