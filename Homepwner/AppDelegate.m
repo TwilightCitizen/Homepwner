@@ -7,9 +7,13 @@
 
 #import "AppDelegate.h"
 
+
+
 @interface AppDelegate ()
 
 @end
+
+
 
 @implementation AppDelegate
 
@@ -18,10 +22,6 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     return YES;
 }
-
-
-#pragma mark - UISceneSession lifecycle
-
 
 - (UISceneConfiguration *)application:(UIApplication *)application
 configurationForConnectingSceneSession:(UISceneSession *)connectingSceneSession
@@ -32,8 +32,6 @@ configurationForConnectingSceneSession:(UISceneSession *)connectingSceneSession
 }
 
 - (void)application:(UIApplication *)application
-didDiscardSceneSessions:(NSSet<UISceneSession *> *)sceneSessions
-{
-}
+didDiscardSceneSessions:(NSSet<UISceneSession *> *)sceneSessions {}
 
 @end
