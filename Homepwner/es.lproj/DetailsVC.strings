@@ -1,0 +1,18 @@
+
+/* Class = "UILabel"; text = "Value"; ObjectID = "IKB-19-0cu"; */
+"IKB-19-0cu.text" = "Valor";
+
+/* Class = "UIButton"; normalTitle = "Asset Type"; ObjectID = "bM1-H6-CvX"; */
+"bM1-H6-CvX.normalTitle" = "Tipo de Activo";
+
+/* Class = "UILabel"; text = "Date"; ObjectID = "eBT-c4-CsL"; */
+"eBT-c4-CsL.text" = "Fecha";
+
+/* Class = "UILabel"; text = "Serial"; ObjectID = "jMK-dq-WFv"; */
+"jMK-dq-WFv.text" = "Numéro de Serie";
+
+/* Class = "UILabel"; text = "Name"; ObjectID = "lIc-gF-Nbc"; */
+"lIc-gF-Nbc.text" = "Nombre";
+
+/* Class = "UILabel"; text = "Photo"; ObjectID = "y6A-EN-VgP"; */
+"y6A-EN-VgP.text" = "Fotografía";

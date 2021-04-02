@@ -123,8 +123,11 @@
     self.imageView.image = [ImageStore.sharedStore imageForKey:item.itemKey];
     
     NSString *typeLabel = [(NSManagedObject *)self.item.assetType valueForKey:@"label"];
+    NSString *assetTypeString = NSLocalizedString(@"Asset Type: ", "Prefix for selected asset type");
+    NSString *typeNoneString = NSLocalizedString(@"None", "Asset type none");
     
-    typeLabel = !typeLabel ? @"Asset Type: None" :
+    typeLabel = !typeLabel ?
+        [NSString stringWithFormat:@"%@%@", assetTypeString, typeNoneString] :
         [NSString stringWithFormat:@"Asset Type: %@", typeLabel];
     
     [self.assetType setTitle:typeLabel

@@ -24,7 +24,7 @@
     
     if (self) {
         UINavigationItem *navItem = self.navigationItem;
-        navItem.title = @"Homepwner";
+        navItem.title = NSLocalizedString(@"Homepwner", "Name of application");
         
         UIBarButtonItem *bbi = [[UIBarButtonItem alloc]
                                 initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
@@ -39,9 +39,18 @@
         [ns addObserver:self selector:@selector(updateTableViewForDynamicTypeSize)
                    name:UIContentSizeCategoryDidChangeNotification
                  object:nil];
+        
+        [ns addObserver:self
+               selector:@selector(localeChanged:)
+                   name:NSCurrentLocaleDidChangeNotification
+                 object:nil];
     }
     
     return self;
+}
+
+- (void)localeChanged:(NSNotification *)note {
+    [self.tableView reloadData];
 }
 
 - (void)dealloc{
@@ -105,9 +114,16 @@
         ItemCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ItemCell"
                                                          forIndexPath:indexPath];
         
+        static NSNumberFormatter *currencyFormatter = nil;
+        
+        if (!currencyFormatter) {
+            currencyFormatter = [[NSNumberFormatter alloc] init];
+            currencyFormatter.numberStyle = NSNumberFormatterCurrencyStyle;
+        }
+        
         cell.nameLabel.text = item.itemName;
         cell.serialLabel.text = item.serialNumber;
-        cell.valueLabel.text = [NSString stringWithFormat:@"%d", item.valueDollars];
+        cell.valueLabel.text = [currencyFormatter stringFromNumber:@(item.valueDollars)];
         cell.thumbView.image = item.thumbnail;
         
         __weak ItemCell *weakCell = cell;
