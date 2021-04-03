@@ -10,6 +10,7 @@
 #import "ImageStore.h"
 #import "ItemStore.h"
 #import "AssetTypeVC.h"
+#import "AppDelegate.h"
 
 
 
@@ -144,8 +145,17 @@
     Item *item = self.item;
     item.itemName = self.nameField.text;
     item.serialNumber = self.serialField.text;
-    item.valueDollars = [self.valueField.text intValue];
     item.dateCreated = self.datePicker.date;
+    
+    int newValue = [self.valueField.text intValue];
+    
+    if (newValue != item.valueDollars) {
+        item.valueDollars = newValue;
+        
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        
+        [defaults setInteger:newValue forKey:NextItemValuePrefsKey];
+    }
 }
 
 - (void)prepareViewsForOrientation:(UIInterfaceOrientation)io {

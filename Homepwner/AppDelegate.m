@@ -8,6 +8,10 @@
 #import "AppDelegate.h"
 
 
+NSString * const NextItemValuePrefsKey = @"NextItemValue";
+NSString * const NextItemNamePrefsKey = @"NextItemName";
+
+
 
 @interface AppDelegate ()
 
@@ -16,6 +20,18 @@
 
 
 @implementation AppDelegate
+
++ (void)initialize
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    NSDictionary *factorySettings = @{
+        NextItemValuePrefsKey : @75,
+        NextItemNamePrefsKey : @"Coffee Cup"
+    };
+    
+    [defaults registerDefaults:factorySettings];
+}
 
 - (BOOL)application:(UIApplication *)application
 didFinishLaunchingWithOptions:(NSDictionary *)launchOptions

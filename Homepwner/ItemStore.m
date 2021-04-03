@@ -8,6 +8,8 @@
 #import "ItemStore.h"
 #import "Item+CoreDataClass.h"
 #import "ImageStore.h"
+#import "AppDelegate.h"
+
 #import <CoreData/CoreData.h>
 
 
@@ -85,6 +87,11 @@
     Item *item = [NSEntityDescription insertNewObjectForEntityForName:@"Item"
                                                inManagedObjectContext:self.context];
     item.orderingValue = order;
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    item.valueDollars = [defaults integerForKey:NextItemValuePrefsKey];
+    item.itemName = [defaults objectForKey:NextItemNamePrefsKey];
     
     [self.privateItems addObject:item];
     
